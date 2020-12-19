@@ -33,10 +33,8 @@ Our power converters are used to convert the voltage from our 24V Lipo battery d
 Background research mainly involved knowledge acquired from ECE 4560: Power Electronics. Ask Kathleen, Eric, or Robby if you want the slides from that class in order to learn the material. You should know the basics of what a switching converter is and also how a buck converter, boost converter, and flyback converter work.  
 
 For a brief background, a very basic DC-DC converter would be a voltage divider. However, due to the fact that you are essentially burning power through one of your resistors, these are extremely simple and cheap, have poor efficiency, have poor isolation, and do not work for variable inputs. 
-![Voltage divider](img/volt_divider.png)
 
 Additionally, there are linear regulators where you can think of the regulating device as being made to act like a variable resistor. You continuously adjusts a voltage divider network needed to maintain an output voltage. 
-![Linear regulator](img/linear_regulator.png)
 
 In terms of linear regulators vs switching regulators, we can compare them as shown below:
 | Linear regulators | Switching regulators |
@@ -51,7 +49,6 @@ In terms of linear regulators vs switching regulators, we can compare them as sh
 Switching converters are much more efficient than linear regulators, and some are able to increase as well as decrease voltage. They convert one DC voltage level to another by storing the input energy temporarily in either inductors, transformers, and capacitors, and releasing this energy to the output at a different voltage.
 
 Buck converters are one of the simplest switching topologies and can decrease voltage. Flyback converters utilize a transformer and can increase or decrease voltage.
-![Buck flyback](img/buck_flyback.png)
 
 Most of our converters are buck converters because our batteries operate at 24V and all of our boards operate at less than 24V. In addition, buck converters are one of the simplest designs and can be highly efficient. However, we may use a flyback converter for our high power electronics such as the Jetson and Xavier instead of a buck converter. Flyback converters use a transformer to help control the output voltage and current. In addition, the transformer allows for galvanic isolation between the batteries and the electronics. If the battery was to explode, the other side of the transformer would be somewhat protected because it is not directly connected. The downside of a flyback converter is that it is more complex to design because it requires us to choose a transformer or a core that we can wrap wire around to create our own transformer. Choosing a core or transformer becomes a very complex process when trying to optimize efficiency.
 
